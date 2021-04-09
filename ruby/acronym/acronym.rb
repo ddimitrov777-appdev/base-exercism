@@ -7,4 +7,10 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Acronym
+    def self.abbreviate(thearg)
+      result = thearg.split.map(&:chr).join.upcase
+      #result = thearg.split.map{|word| word[0]}.join.upcase
+      
+      return result
+    end
 end
