@@ -10,31 +10,29 @@ To get started with TDD, see the `README.md` file in your
 #count slots per fow
 
 class Matrix
+  def initialize(argument)
+    @thestring = argument
+  end
 
-    def initialize(argument)
-        @thestring = argument
-    end
+  def rows
+    split = @thestring.split(/\n/)
+    rowsize = @thestring.index(/\n/) - 1
+    newarray = []
 
-    def rows
-      split =  @thestring.split(/\n/)
-      rowsize = @thestring.index(/\n/) - 1
-     newarray = []
-      split.each do |item|
-      
+    split.each do |item|
       newarray += item.split(/ /)
-
-      end
-    
-      #arraysplit = split.each { |n| n.split(/ /)}
-      finalarray = newarray.each_slice(2).to_a
-     
     end
     
-    def columns
-    end
+    newarray.map(&:to_i)
+    #newarray.grep(/\d+/, &:to_i)
+    #newarray.map { |n| n.to_i }
+    #arraysplit = split.each { |n| n.split(/ /)}
+    finalarray = newarray.each_slice(2).to_a
+  end
 
+  def columns
+  end
 end
 
 test = Matrix.new("1 2\n10 20")
-test.rows[0]
-
+p test.rows[0]
