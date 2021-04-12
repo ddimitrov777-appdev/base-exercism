@@ -6,6 +6,8 @@ To get started with TDD, see the `README.md` file in your
 `ruby/matrix` directory.
 =end
 
+#Find new line... split on this to get rows...
+#count slots per fow
 
 class Matrix
 
@@ -14,7 +16,18 @@ class Matrix
     end
 
     def rows
-     p "nice"
+      split =  @thestring.split(/\n/)
+      rowsize = @thestring.index(/\n/) - 1
+     newarray = []
+      split.each do |item|
+      
+      newarray += item.split(/ /)
+
+      end
+    
+      #arraysplit = split.each { |n| n.split(/ /)}
+      finalarray = newarray.each_slice(2).to_a
+     
     end
     
     def columns
@@ -22,5 +35,6 @@ class Matrix
 
 end
 
-test = Matrix.new("this is the string")
-test.rows
+test = Matrix.new("1 2\n10 20")
+test.rows[0]
+
