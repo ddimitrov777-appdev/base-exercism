@@ -28,6 +28,7 @@ class Matrix
     #newarray.map { |n| n.to_i }
     #arraysplit = split.each { |n| n.split(/ /)}
     finalarray = newarray.each_slice(2).to_a
+    finalarray.map { |sr| sr.map(&:to_i) }
   end
 
   def columns
