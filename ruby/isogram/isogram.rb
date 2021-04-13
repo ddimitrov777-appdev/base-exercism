@@ -5,7 +5,7 @@ Write your code for the 'Isogram' exercise in this file. Make the tests in
 To get started with TDD, see the `README.md` file in your
 `ruby/isogram` directory.
 =end
-class Isogram
+class Isogramold
     attr_reader :isogram
     alias_method :isogram?, :isogram
 
@@ -22,5 +22,10 @@ class Isogram
 
 end
 
-testy = Isogram.new("fiojws  a")
-p testy.isogram?
+class Isogram
+  def self.is_isogram?(word)
+    letters = word.downcase.chars - [' ', '-']
+    letters == letters.uniq
+  end
+end
+
