@@ -39,12 +39,15 @@ class Oldmatrix
     finalarray = newarray.each_slice(2).to_a
 
     @seriouslyfinalarray = finalarray.map { |sr| sr.map(&:to_i) }
+    
+    @numcols = @seriouslyfinalarray[0].count - 1
+    #p @numcols
     return @seriouslyfinalarray
 
-    @numcols = @seriouslyfinalarray[0].count - 1
   end
 
   def columns
+    self.rows
     therange = Range.new(0, @numcols)
     width = (@numcols + 1)
     height = (@seriouslyfinalarray.count - 1)
@@ -60,6 +63,9 @@ class Oldmatrix
   end
 end
 
-test = Matrix.new("1 2\n10 20")
+test = Oldmatrix.new("1 2\n10 20")
+#p test.rows
 p test.columns
+
+
 #p test.rows[1]
