@@ -10,6 +10,15 @@ To get started with TDD, see the `README.md` file in your
 #count slots per fow
 
 class Matrix
+    attr_reader :rows, :columns
+
+  def initialize(rep)
+    @rows = rep.each_line.map { |x| x.split.map(&:to_i) }
+    @columns = @rows.transpose
+  end
+end
+
+class Oldmatrix
   def initialize(argument)
     @thestring = argument
   end
